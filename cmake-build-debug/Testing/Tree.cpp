@@ -2,7 +2,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <cstdio>
-#include "iostream"
+#include <iostream>
 bool CreateBiTree(BinTree& T)
 {
     char ch;
@@ -11,7 +11,7 @@ bool CreateBiTree(BinTree& T)
         exit(false);
     std::cin>> ch;
     if (ch == '0')
-        T = NULL;
+        T = nullptr;
     else
     {
         T->Data = ch;
@@ -55,7 +55,7 @@ bool Inorder(BinTree T)
 }
 
 bool Beorder(BinTree T)
-{
+{Queue q1;
     if (T == NULL)
         return false;
 
@@ -74,6 +74,7 @@ bool Beorder(BinTree T)
 void Levelorder(BinTree T)
 {
     Queue Q;
+
     Initqueue(Q);
     BinTree P;
     Enqueue(Q, T);
@@ -288,5 +289,69 @@ int Count_Nodes(BinTree T)
         return Count_Nodes(T->Left)+Count_Nodes(T->Right)+1;
     else return Count_Nodes(T->Left)+Count_Nodes(T->Right);
 }
+bool Judge_BST(BinTree T)
+{
+    if(T==NULL)return true;
+    BinTree left=T->Left;
+    BinTree right=T->Right;
+    while(left)
+    {
+        if(T->Data<=left->Data)return false;
+        left=left->Left;
+    }
+    while (right)
+    {
+        if(T->Data>=right->Data)return false;
+        right=right->Right;
+    }
+    return Judge_BST(T->Right)&& Judge_BST(T->Right);
 
+}
+int lev=0;
+void Bst_find(BinTree T,char e)
+{
+    if(T)
+    {
+        lev++;
+        if(T->Data==e)exit(0) ;
+        else if(T->Data>e)Bst_find(T->Left,e);
+        else Bst_find(T->Right,e);
+    }
+}
+int r=0,f=0,flag=0;
+void Pre(BinTree T,char x)
+{
+    if(T!=0&&flag==0)
+    {
+        if(T->Data==x)
+        {
+            flag=1;
+            exit(0);
+        }
+        else
+        {Queue q1;
+            Enqueue(q1,T);
+            Pre(T->Left,x);
+            Pre(T->Right,x);
+        }
+    }
 
+}
+Queue q1;
+void Tree_parent(BinTree T,char x)
+{
+    int i;
+    Pre(T,x);
+    BinTree temp;
+    Dequeue(q1,temp);
+    for(i=f+1;i<=r;i++)
+    {
+        if(temp->Left->Data==x||temp->Right->Data)break;
+        if(flag==0)
+            printf("Not found x!\n");
+        else if(i<=r)
+            printf("%c",T->Data);
+        else
+            printf("No father node");
+    }
+}

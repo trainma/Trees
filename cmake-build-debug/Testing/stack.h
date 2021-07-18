@@ -42,5 +42,9 @@ bool Preorder(BinTree T);
 bool Inorder(BinTree T);
 bool Beorder(BinTree T);
 int Count_Nodes(BinTree T);
+bool Judge_BST(BinTree T);
+extern int lev;
+extern int r,f,flag;
+extern Queue q1;
 #endif
 #pragma once

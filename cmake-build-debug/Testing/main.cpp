@@ -1,5 +1,4 @@
-﻿// Tree_teacher.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
+﻿
 
 #include <cstdio>
 #include <iostream>
@@ -45,6 +44,14 @@ int main()
     else
         cout<<"Not similar!\n";
     cout<<Count_Nodes(T3);
+    cout<<"\n";
+    if(Judge_BST(T3))
+        cout<<"this is bst!\n";
+    else
+        cout<<"this is not bst!\n";
+
+
+
 
 
 }

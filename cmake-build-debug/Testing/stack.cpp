@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 #include "stack.h"
 
 void Initqueue(Queue& Q)
@@ -55,6 +55,7 @@ bool push(Stack& s,TNode* x)
     s.data[++s.top]=x;
     return true;
 }
+
 bool pop(Stack& s,TNode* &x)
 {
     if(s.top==-1)
