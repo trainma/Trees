@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Tree.dir/Testing/main.cpp.o CMakeFiles/Tree.dir/Testing/stack.cpp.o CMakeFiles/Tree.dir/Testing/Tree.cpp.o -o Tree 
