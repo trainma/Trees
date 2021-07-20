@@ -53,5 +53,7 @@ extern Queue q1;
 int Bintree_width(BinTree T);
 bool Judge_complete_tree(BinTree T);
 void Preorder_NonRecursion(BinTree T);
+void Pre_To_Post(char pre[],int l1,int h1,char post[],int l2,int h2);
+
 #endif
 #pragma once

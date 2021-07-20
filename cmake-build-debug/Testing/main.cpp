@@ -39,6 +39,7 @@ int main()
     printf("\n");
     cout<<Leaves_count2(T3);
     printf("\n");
+
     if(Judge_similar(T3,T2))
         cout<<"similar!\n";
     else
@@ -53,7 +54,17 @@ int main()
     if(Judge_complete_tree)
         cout<<"this tree is complete tree\n";
     Preorder_NonRecursion(T3);
-        return 0;
+
+
+        char* pre="ABCDEFG";
+        char post[7];
+    Pre_To_Post(pre,0,6,post,0,6);
+    for(int r=0;r<=6;r++)
+    {
+        printf("%c ",post[r]);
+    }
+
+    return 0;
 }
 
 
