@@ -38,7 +38,13 @@ void Initstack(Stack& s)
 {
     s.top=-1;
 }
-
+int Queue_size(Queue Q)
+{
+    if(Q.front==Q.rear)
+        return 0;
+    else
+        return (Q.rear-Q.front+maxsize)%maxsize;
+}
 bool Stack_isempty(Stack s)
 {
     if(s.top==-1)
@@ -64,7 +70,13 @@ bool pop(Stack& s,TNode* &x)
     x=s.data[s.top--];
     return true;
 }
-
+int Stack_size(Stack s)
+{
+    if(s.top==-1)
+        return 0;
+    else
+        return s.top;
+}
 //
 // Created by x on 2021/7/18.
 //

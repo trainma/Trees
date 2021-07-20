@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
+#include <math.h>
 bool CreateBiTree(BinTree& T)
 {
     char ch;
@@ -354,4 +355,85 @@ void Tree_parent(BinTree T,char x)
         else
             printf("No father node");
     }
+}
+
+int Bintree_width(BinTree T)
+{
+    if(!T)return 0;
+    Queue Q;
+    Initqueue(Q);
+    Enqueue(Q,T);
+    int maxwidth=1;
+    while (1)
+    {
+        int len= Queue_size(Q);
+        if(len==0)
+            break;
+        while (len>0)
+        {
+            BinTree t;
+            Dequeue(Q,t);
+            len--;
+            if(t->Left!= nullptr)
+                Enqueue(Q,t->Left);
+            if(t->Right!= nullptr)
+                Enqueue(Q,t->Right);
+            if(maxwidth>Queue_size(Q))
+                maxwidth=maxwidth;
+            else
+                maxwidth= Queue_size(Q);
+        }
+    }
+    return maxwidth;
+}
+
+
+
+bool Judge_complete_tree(BinTree T)
+{   Queue Q;
+    Initqueue(Q);
+    if(!T)
+        return true;
+    Enqueue(Q,T);
+    BinTree p;
+    while (!Isempty(Q))
+    {
+        Dequeue(Q,p);
+        if(p)
+        {
+            Enqueue(Q,T->Left);
+            Enqueue(Q,T->Right);
+
+        }
+        else
+        {
+            Dequeue(Q,p);
+            if(p)
+                return false;
+        }
+    }
+    return true;
+}
+
+
+void Preorder_NonRecursion(BinTree T)
+{   Stack S;
+    Initstack(S);
+    BinTree p=T;
+    while (p|| !Stack_isempty(S))
+    {
+        if(p)
+        {
+            printf("%c ",p->Data);
+            push(S,p);
+            p=p->Left;
+        }
+        else
+        {
+            pop(S,p);
+            p=p->Right;
+        }
+
+    }
+
 }

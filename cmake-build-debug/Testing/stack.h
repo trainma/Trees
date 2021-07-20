@@ -2,6 +2,8 @@
 #define __STACK_H
 
 #define maxsize 50
+#include "queue"
+#include "math.h"
 typedef char ElementType;
 typedef struct TNode* Position;
 typedef Position BinTree;
@@ -42,9 +44,14 @@ bool Preorder(BinTree T);
 bool Inorder(BinTree T);
 bool Beorder(BinTree T);
 int Count_Nodes(BinTree T);
+int Stack_size(Stack s);
+int Queue_size(Queue Q);
 bool Judge_BST(BinTree T);
 extern int lev;
 extern int r,f,flag;
 extern Queue q1;
+int Bintree_width(BinTree T);
+bool Judge_complete_tree(BinTree T);
+void Preorder_NonRecursion(BinTree T);
 #endif
 #pragma once

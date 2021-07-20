@@ -49,11 +49,11 @@ int main()
         cout<<"this is bst!\n";
     else
         cout<<"this is not bst!\n";
-
-
-
-
-
+    cout<<Bintree_width(T3)<<end("\n");
+    if(Judge_complete_tree)
+        cout<<"this tree is complete tree\n";
+    Preorder_NonRecursion(T3);
+        return 0;
 }
 
 
