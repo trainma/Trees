@@ -4,7 +4,7 @@
 #include <iostream>
 #include "stack.h"
 using namespace std;
-int GetHeight(BinTree T);
+
 
 
 
@@ -18,7 +18,7 @@ int main()
     BinTree T2 = buildtree(c, d, 7);
     cout << "   T 3\n";
     cout <<"     4      \n";
-    cout <<"   5   3    \n";
+    cout <<"   3   5    \n";
     cout <<"  1 2 6 7   \n";
     cout << "   T 2\n";
     cout <<"     1      \n";
@@ -26,10 +26,10 @@ int main()
     cout <<"  4 5 6 7   \n";
     printf("%d", GetHeight(T3));
     printf("\n");
-    Tree_swap(T3);
+   // Tree_swap(T3);
     Preorder(T3);
     printf("\n");
-    printf("%d",Tree_count(T3));
+    Inorder(T3);
     printf("\n");
     printf("%d",Tree_count(T3));
     printf("\n");
@@ -53,17 +53,8 @@ int main()
     cout<<Bintree_width(T3)<<end("\n");
     if(Judge_complete_tree)
         cout<<"this tree is complete tree\n";
-    Preorder_NonRecursion(T3);
-
-
-        char* pre="ABCDEFG";
-        char post[7];
-    Pre_To_Post(pre,0,6,post,0,6);
-    for(int r=0;r<=6;r++)
-    {
-        printf("%c ",post[r]);
-    }
-
+    BinTree temp=Tree_Parent(T3,'6');
+    printf("%c ",temp->Data);
     return 0;
 }
 

@@ -303,7 +303,8 @@ bool Judge_BST(BinTree T)
     while (right)
     {
         if(T->Data>=right->Data)return false;
-        right=right->Right;
+        right=right->Right;printf("\n");
+
     }
     return Judge_BST(T->Right)&& Judge_BST(T->Right);
 
@@ -451,3 +452,59 @@ void Pre_To_Post(char *pre,int l1,int h1,char *post,int l2,int h2)
 
 }
 
+
+BinTree Tree_Parent(BinTree T,char x)
+{
+    BinTree ans;
+    if(T== nullptr)
+    {
+        return NULL;
+    }
+    if(T->Right== nullptr&&T->Left== nullptr)
+        return NULL;
+    else
+    {
+        if(T->Left->Data==x||T->Right->Data==x)
+            return T;
+        else
+        {
+            ans= Tree_Parent(T->Left,x);
+            if(ans)
+                return ans;
+            ans= Tree_Parent(T->Right,x);
+            if(ans)
+                return ans;
+            return NULL;
+        }
+
+    }
+}
+
+
+
+bool Find_Prent(BinTree T,BinTree x)
+{
+    if(T==x)
+        return false;
+    if(T->Left)
+    {
+        if(T->Left==x)
+        {
+            printf("%c",T->Data);
+            return true;
+
+        } else Find_Prent(T->Left,x);
+
+    }
+    else if(T->Right==x)
+    {
+        if(T->Right==x)
+        {
+            printf("%c",T->Data);
+            return true;
+
+        } else Find_Prent(T->Right,x);
+    }
+    return false;
+
+}

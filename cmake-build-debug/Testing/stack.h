@@ -22,6 +22,7 @@ typedef struct {
     TNode* data[maxsize];
     int top;
 }Stack;
+int GetHeight(BinTree T);
 void Initqueue(Queue& Q);
 bool Isempty(Queue Q);
 bool Enqueue(Queue& Q, TNode* x);
@@ -54,6 +55,10 @@ int Bintree_width(BinTree T);
 bool Judge_complete_tree(BinTree T);
 void Preorder_NonRecursion(BinTree T);
 void Pre_To_Post(char pre[],int l1,int h1,char post[],int l2,int h2);
+void Pre(BinTree T,char x);
+bool Find_Prent(BinTree T,BinTree x);
+void Tree_parent(BinTree T,char x);
+BinTree Tree_Parent(BinTree T,char x);
 
 #endif
 #pragma once
