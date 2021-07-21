@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/x/公共的/Code/Trees/cmake-build-debug/Testing/main.cpp
+cstdio
+-
+iostream
+-
+stack.h
+/home/x/公共的/Code/Trees/cmake-build-debug/Testing/stack.h
+
+/home/x/公共的/Code/Trees/cmake-build-debug/Testing/stack.h
+queue
+/home/x/公共的/Code/Trees/cmake-build-debug/Testing/queue
+math.h
+/home/x/公共的/Code/Trees/cmake-build-debug/Testing/math.h
+
